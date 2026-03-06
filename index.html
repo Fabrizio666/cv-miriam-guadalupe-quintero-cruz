@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Miriam Guadalupe Quintero Cruz</title>
+
+    <style>
+        /* ===================================================================
+   Fonts & Root Variables
+   =================================================================== */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans:wght@300;400;600&family=Inter:wght@300;400;500&display=swap');
+
+        :root {
+            --primary: #3a3a3a;
+            /* texto principal */
+            --accent: #107a7a;
+            /* enlaces, subtítulos */
+            --soft: #eae7e3;
+            /* bordes suaves */
+            --bg: #f8f7f5;
+            /* fondo general */
+            --text: #333;
+            /* color alternativo / fallback */
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* ===================================================================
+   Base
+   =================================================================== */
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--primary);
+            line-height: 1.6;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            left: calc(50% - 0px);
+            top: 10%;
+            transform: translateX(-700px);
+            width: 336px;
+            height: 100vh;
+            /*background: url("6.png") no-repeat left top;*/
+            background-size: contain;
+            opacity: 0.85;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* ===================================================================
+   Photo frame
+   =================================================================== */
+        .photo-container {
+            width: 164px;
+            height: 248px;
+            position: relative;
+        }
+
+        .photo-container::before,
+        .photo-container::after {
+            content: "";
+            position: absolute;
+            border-radius: 50% / 40%;
+        }
+
+        .photo-container::before {
+            inset: -5px;
+            background: radial-gradient(circle at 30% 30%, #d3b21f, #967509 40%, #a67c00 70%, #6b520b);
+            box-shadow:
+                inset 0 0 10px rgba(255, 255, 255, .6),
+                inset 0 0 20px rgba(0, 0, 0, .4),
+                0 10px 20px rgba(0, 0, 0, .25);
+            z-index: 1;
+        }
+
+        .photo-container::after {
+            inset: -8px;
+            border: 4px solid rgba(212, 172, 38, .7);
+            box-shadow:
+                inset 0 0 8px rgba(255, 255, 255, .6),
+                inset 0 0 10px rgba(0, 0, 0, .3);
+            z-index: 2;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50% / 40%;
+            position: relative;
+            z-index: 3;
+        }
+
+        /* ===================================================================
+   Flower decorations
+   =================================================================== */
+        .flower {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            z-index: 5;
+            filter: drop-shadow(0 5px 10px rgba(0, 0, 0, .3));
+        }
+
+        .flower-top {
+            top: -10px;
+            right: -20px;
+            transform: rotate(15deg);
+        }
+
+        .flower-left {
+            top: 40%;
+            left: -50px;
+            transform: rotate(-20deg);
+        }
+
+        .flower-bottom {
+            bottom: -40px;
+            left: 35%;
+            transform: rotate(10deg);
+        }
+
+        .flower-right {
+            top: 55%;
+            right: -40px;
+            transform: rotate(-10deg);
+        }
+
+        /* ===================================================================
+   Layout container
+   =================================================================== */
+        .container {
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 40px;
+            background: #fff;
+            border-radius: 10px;
+            border: 1px solid var(--soft);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+            position: relative;
+            z-index: 1;
+            padding-bottom: 80px;
+        }
+
+        .container::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 60px;
+            width: 35%;
+            height: 30%;
+            background: url("5.png") no-repeat bottom right;
+            background-size: contain;
+            pointer-events: none;
+            opacity: 0.95;
+            z-index: 0;
+        }
+
+        /* ===================================================================
+   Header
+   =================================================================== */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 35px;
+            font-weight: 500;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #777;
+        }
+
+        /* ===================================================================
+   Sections
+   =================================================================== */
+        .section {
+            margin-bottom: 22px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--accent);
+            letter-spacing: .5px;
+        }
+
+        .text {
+            font-size: 14px;
+            color: #444;
+        }
+
+        /* ===================================================================
+   Lists & blocks
+   =================================================================== */
+        .list {
+            padding-left: 18px;
+        }
+
+        .list li {
+            margin-bottom: 4px;
+            font-size: 14px;
+        }
+
+        .job-title,
+        .education-title {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .job-subtitle,
+        .education-subtitle {
+            font-size: 13px;
+            color: var(--accent);
+        }
+
+        /* ===================================================================
+   Links
+   =================================================================== */
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===================================================================
+   Responsive
+   =================================================================== */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .photo-container {
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <!-- HEADER -->
+        <header class="header">
+            <div class="header-info">
+                <h1 class="name">Miriam Guadalupe Quintero Cruz</h1>
+                <p class="subtitle">Técnico en Sistemas • Estudiante de Ingeniería</p>
+            </div>
+
+            <div class="photo-container">
+                <img src="foto.png" alt="Foto de Miriam Guadalupe Quintero Cruz" class="profile-img">
+
+                <!-- FLORES 
+                <img src="1.png" alt="Flores decorativas" class="flower flower-top">
+                <img src="2.png" alt="Flores decorativas" class="flower flower-left">
+                <img src="3.png" alt="Flores decorativas" class="flower flower-bottom">
+                <img src="4.png" alt="Flores decorativas" class="flower flower-right">
+            -->
+            </div>
+        </header>
+
+        <!-- INFORMACIÓN PERSONAL -->
+        <section class="section">
+            <h2 class="section-title">Información Personal</h2>
+            <ul class="list">
+                <li>Email: <a href="mailto:miriamquintero@gmail.com">miriamquintero@gmail.com</a></li>
+                <li>Teléfono: <a href="tel:+528149824355">+52 81 4982 4355</a></li>
+            </ul>
+        </section>
+
+        <!-- PERFIL -->
+        <section class="section">
+            <h2 class="section-title">Perfil Profesional</h2>
+            <p class="text">
+                Estudiante en Ingeniería en Sistemas Computacionales con formación técnica en informática.
+                Apasionada por la tecnología y el mundo informático.
+                Aprendo rápido, trabajo bien en equipo y tengo un alto sentido de la responsabilidad.
+            </p>
+        </section>
+
+        <!-- EXPERIENCIA -->
+        <section class="section">
+            <h2 class="section-title">Experiencia Laboral</h2>
+
+            <div class="job">
+                <h3 class="job-title">Aseguradora Check Plus S.A. de C.V.</h3>
+
+                <div class="job-role">
+                    <p class="job-subtitle">Validación de datos y autorización de movimientos (Atención a clientes)</p>
+                    <ul class="list">
+                        <li>Validación de información financiera y personal.</li>
+                        <li>Autorización de movimientos bajo criterios de seguridad.</li>
+                        <li>Atención directa a clientes.</li>
+                    </ul>
+                </div>
+
+                <div class="job-role">
+                    <p class="job-subtitle">Auxiliar administrativo (Área de ventas)</p>
+                    <ul class="list">
+                        <li>Apoyo en procesos administrativos.</li>
+                        <li>Gestión de documentación.</li>
+                        <li>Capturición de datos.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCACIÓN -->
+        <section class="section">
+            <h2 class="section-title">Formación Académica</h2>
+
+            <div class="education">
+                <h3 class="education-title">Universidad Emiliano Zapata</h3>
+                <p class="education-subtitle">Ingeniería en Sistemas Computacionales (Cursando)</p>
+            </div>
+
+            <div class="education">
+                <h3 class="education-title">CONALEP Lic. Bárbara Herrera Garza</h3>
+                <p class="education-subtitle">Técnico en Informática • 2020 - 2023</p>
+            </div>
+        </section>
+
+        <!-- HABILIDADES -->
+        <section class="section">
+            <h2 class="section-title">Habilidades y Competencias</h2>
+            <ul class="list">
+                <li>Mantenimiento de equipos de cómputo.</li>
+                <li>Instalación y actualización de software.</li>
+                <li>Conocimientos en programación.</li>
+                <li>Manejo de aplicaciones Office 365.</li>
+                <li>Control de la herramienta Excel Intermedio.</li>
+            </ul>
+        </section>
+
+        <!-- ACTITUDES -->
+        <section class="section">
+            <h2 class="section-title">Actitudes</h2>
+            <ul class="list">
+                <li>Responsabilidad y compromiso.</li>
+                <li>Trabajo en equipo.</li>
+                <li>Aprendizaje continuo y rapido.</li>
+            </ul>
+        </section>
+
+    </main>
+
+</body>
+
+</html>
